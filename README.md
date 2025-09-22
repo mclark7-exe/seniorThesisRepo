@@ -1,41 +1,28 @@
-# Senior Thesis Repo: [PLACE YOUR PROJECT NAME HERE]
-This repository is provided to help you build your senior thesis project. You will edit it to store your specification documents, code, and weekly checkins.
+# Senior Thesis Repo: Silliam Shakespeare's Theatre "Simulator" (Working Title)
+As a historic theatre's new owner and director, put on shows by running through a gauntlet of fast-paced microgames.
 
-First, fork this repo (this makes a copy of it associated with your account) and then clone it to your machine (this makes a copy of your fork on your personal machine). You can then use an editor and a GitHub client to manage the repository.
+## Overall gameplay loop
 
-### Markdown
-This file is called README.md. It is a [Markdown file](https://en.wikipedia.org/wiki/Markdown). Markdown is a simple way to format documents. When a Markdown-ready viewer displays the contents of a file, it formats it to look like HTML. However, Markdown is significantly easier to write than HTML. VSCode supports displaying Markdown in a preview window. GitHub uses Markdown extensively including in every repo's description file, ```README.md```.
+The player selects the ‘showtime’ button to start the show
+After a ‘3, 2, 1, GO’ countdown, the curtain opens, and a random unlocked microgame is started
+Microgames are selected randomly but in rough chronological order
+Short instructions, a timer, and an ‘audience reaction’ bar are shown on screen 
+The audience reaction starts around one-third full at the beginning of the game but starts higher when the player buys decorations, achieves a higher reputation, and acquires more popular scripts
+The player attempts to follow the onscreen instructions
+The audience reaction bar rises if the player successfully follows the instructions or falls if they fail to do so before the timer reaches zero
+Curtains close to cover the screen and open to a new microgame
+The player continues to play microgames until either they complete a certain amount of them or the audience reaction bar empties completely
+If the player fills the audience reaction bar completely during the show, they will enter an ‘encore,’ shown by a flashy pop-up at the end of the bar
+If the player achieves an encore, the microgames will instead continue indefinitely until the player fails one more
+A statistics screen shows:
+The final audience reaction score- the final percentage of how full the bar is
+How many tickets were sold, increased by a more popular script and a higher reputation
+How much money was spent on the production, increased by a larger cast and crew, any marketing the player chooses to do, and any damage or accidents caused by failing certain microgames
+How much money was made, increased by a higher audience reaction bar and ticket sales
+a one-to-five-star rating, given depending on the audience reaction score, how much money was made, and whether the player achieved an encore
+An excerpt from a critic's review of the show, randomly picked based on star rating
+player taps the ‘curtain call’ button to return to the theatre
 
-All Markdown files end with the extension ```.md```. There is a Markdown tutorial [here](https://www.markdowntutorial.com/) and a Markdown cheatsheet [here](https://www.markdownguide.org/cheat-sheet/).
-
-#### Images
-If you would like to add images to a Markdown file, place them in the ```docs/images/``` directory in this repo and reference them using markdown like this:
-
-```
-![alt text](relative/path/to/image)
-```
-
-Here is how to add the Carthage logo to a Markdown file (you can see the image in the repo right now):
-
-```
-![Carthage Firebird Logo](docs/images/firebirdLogo.jpg)
-```
-![Carthage Firebird Logo](docs/images/firebirdLogo.jpg)
-
-This ensures that images are correctly linked and displayed when viewing the documentation on GitHub or any Markdown-supported platform.
-
-## Code
-The ```code``` directory is used to store your code. You can put it all in one directory or you can create subdirectories.
-
-I have added a ```main.cpp``` file to get you started. Feel free to remove it.
-
-If you have any questions feel free to ask me! I'll answer professor questions, customer questions, and give advice if asked.
-
-# Sample Spec
-
-Below is an example of a project specification.  
-
-## Software Requirements Specification for the Mahoney University Registration System
 
 ## Introduction
 
