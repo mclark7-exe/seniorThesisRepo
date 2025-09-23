@@ -31,3 +31,27 @@ As a historic theatre's new owner and director, put on shows by running through 
 * Every time this microgame repeats:
     * There will be added distractions in the form of actors and set dressings onstage
     * The actress will move around the stage slightly faster
+      
+### Open the Curtains
+
+* The player controls a stagehand backstage using a pulley rope system to open the curtains
+* The player must swipe down on the touchscreen repeatedly to pull the pulley rope
+* Every time this microgame repeats:
+    * The rope will move less with each swipe
+ 
+### Memorize Your Line
+
+* An actor backstage is studying the script
+* A random line from a famous play will appear on the screen
+* The player must quickly memorize the line for later
+
+### Remember Your Line
+
+* After the player encounters the "Memorize Your Line" microgame, they will encounter this microgame later in the run
+* The previous memorized line will appear on the screen along with two variations of the line
+* The player must choose the correct line out of the three
+* Every time this pair of microgames repeat:
+    * The player must memorize longer and more complex lines
+    * The variations of the line will be more subtle
+ 
+### 
