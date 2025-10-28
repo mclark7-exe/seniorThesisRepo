@@ -2,7 +2,7 @@
 
 ### This week I worked on:
 
-This week I researched Unity's documentation for implementing a phone's gyroscope and microphone. I experimented with porting one of my previous unity projects to Android and testing it on my phone. I also learned to create and animate pixelart in Aseprite and made some rudimentary temporary assets.
+This week I researched Unity's documentation for implementing a phone's gyroscope and microphone. I experimented with porting one of my previous Unity projects to Android and testing it on my phone. I also learned to create and animate pixel art in Aseprite and made some rudimentary temporary assets.
 
 ### This week I learned:
 
@@ -18,22 +18,22 @@ I am by no means an artist, so learning to use Aseprite has proven to be a chall
 
 ---
 
-## Week 2 Summary (MM/DD/YYYY)
+## Week 2 Summary (10/06/2025)
 ### This week I worked on:
 
-[Your answer here]
+This week I added a title screen and began developing the "spotlight" microgame. I added a spotlight that the player moves around the screen by tilting their phone as well as a dancer that moves randomly between points on a stage background. I also implemented an input system for the touchscreen and wrote a script that recognizes directional swipes.
 
 ### This week I learned:
 
-[Your answer here]
+This week I learned about Unity's Dot function, which multiplies the magnitudes of two vectors, then multiplies that total by the cosine of the two vectors, to return a value from -1 to 1. The closer the result is to 1, the closer the two vectors are to being parallel. I was able to use this function to compare the angle of a swipe on the touchscreen to vectors going up, down, left, and right to determine the direction of the swipe.
 
 ### My successes this week were:
 
-[Your answer here]
+I'm very pleased with the solution I found to move the spotlight across the screen according to the phone's rotation.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+This was my first time implementing motion controls in Unity. I first tried using the phone's accelerometer to detect motion, but I found out that it was unable to detect side-to-side tilting when the phone is held upright. I ended up using the phone's gyroscope, which was able to detect the phone's rotation rate in every direction, exactly what I needed.
 
 ---
 
