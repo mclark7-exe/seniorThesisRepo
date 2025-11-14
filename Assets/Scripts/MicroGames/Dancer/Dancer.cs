@@ -1,0 +1,58 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
+using Random = UnityEngine.Random;
+
+public class Dancer : MonoBehaviour
+{
+
+    [SerializeField] private GameObject _waypointsParent;
+    [SerializeField]private List<Transform> _waypoints;
+    private Vector3 _targetPosition;
+    [SerializeField]private float _speed;
+    [SerializeField] private float _maxWaitTime;
+    [SerializeField] private float _minWaitTime;
+    private bool _waiting;
+    private bool _colliding;
+    
+    void Start()
+    {
+        foreach (Transform waypoint in _waypointsParent.transform) _waypoints.Add(waypoint); 
+        
+        transform.position = _waypoints[4].position;
+
+        _targetPosition = _waypoints[Random.Range(0, 8)].position;
+        
+    }
+
+    private void Update()
+    {
+        if (!_waiting) transform.position = Vector2.MoveTowards(transform.position, _targetPosition, _speed *Time.deltaTime);
+        if (transform.position == _targetPosition)
+        {
+            _waiting = true;
+            _targetPosition = _waypoints[Random.Range(0, 8)].position;
+            StartCoroutine(Wait());
+        }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(Random.Range(_minWaitTime, _maxWaitTime));
+        _waiting = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        _colliding = true;
+        Debug.Log("Entered Spotlight");
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _colliding = false;
+        Debug.Log("Exited Spotlight");
+    }
+}
