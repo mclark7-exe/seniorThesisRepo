@@ -14,11 +14,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        InputManager[] inputManagers = FindObjectsByType<InputManager>(FindObjectsSortMode.None);
-        if (inputManagers.Length == 1) DontDestroyOnLoad(this);
-        else Destroy(gameObject);
-        
-        _touchControls = new TouchControls();
+       _touchControls = new TouchControls();
     }
 
     private void OnEnable()
