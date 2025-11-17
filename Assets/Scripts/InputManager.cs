@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
     public event EndTouchEvent OnEndTouch;
     
     private TouchControls _touchControls;
-    private Camera _mainCamera;
 
     private void Awake()
     {
@@ -20,7 +19,6 @@ public class InputManager : MonoBehaviour
         else Destroy(gameObject);
         
         _touchControls = new TouchControls();
-        _mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -28,10 +26,7 @@ public class InputManager : MonoBehaviour
         _touchControls.Enable();
     }
 
-    private void OnDisable()
-    {
-        _touchControls.Disable();
-    }
+   
 
     private void Start()
     {
@@ -41,14 +36,14 @@ public class InputManager : MonoBehaviour
 
     private void StartTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("StartTouch " + ScreenToWorld(_mainCamera, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()));
-        if (OnStartTouch != null) OnStartTouch(ScreenToWorld(_mainCamera, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()), (float)context.startTime);
+        Debug.Log("StartTouch " + ScreenToWorld(Camera.main, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()));
+        if (OnStartTouch != null) OnStartTouch(ScreenToWorld(Camera.main, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()), (float)context.startTime);
     }
     
     private void EndTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("EndTouch " + ScreenToWorld(_mainCamera, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()));
-        if (OnEndTouch != null) OnEndTouch(ScreenToWorld(_mainCamera, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()), (float)context.time);
+        Debug.Log("EndTouch " + ScreenToWorld(Camera.main, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()));
+        if (OnEndTouch != null) OnEndTouch(ScreenToWorld(Camera.main, _touchControls.Touch.TouchPosition.ReadValue<Vector2>()), (float)context.time);
     }
 
     private static Vector3 ScreenToWorld(Camera camera, Vector3 position)

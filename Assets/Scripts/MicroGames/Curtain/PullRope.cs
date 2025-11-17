@@ -14,11 +14,14 @@ public class PullRope : MonoBehaviour
     
     private Transform _curtainTransform;
     
-    private void Awake()
+    private void Start()
     {
         _inputManager = FindFirstObjectByType<InputManager>();
         _rectTransform = GetComponent<RectTransform>();
         _curtainTransform = _curtain.GetComponent<Transform>();
+        _inputManager.OnStartTouch += PullStart;
+        _inputManager.OnEndTouch += PullEnd;
+        Debug.Log("I Exist! :)" + _inputManager);
     }
     
     private void OnEnable()

@@ -300,7 +300,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3554862686143618228, guid: 0d252f5baabde8e4488f89425442e4dd, type: 3}
       propertyPath: m_Name
-      value: InputManager
+      value: InputManager(Curtain)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554862686143618228, guid: 0d252f5baabde8e4488f89425442e4dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4640994178987883039, guid: 0d252f5baabde8e4488f89425442e4dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -447,7 +451,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4924562148327169210, guid: 5600d62f5d6d46f4bb8170c3afa78beb, type: 3}
       propertyPath: _debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498212523523724410, guid: 5600d62f5d6d46f4bb8170c3afa78beb, type: 3}
       propertyPath: m_Name
@@ -630,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PullRope
   _curtain: {fileID: 1130336694}
-  _curtainSpeed: 0.05
+  _curtainSpeed: 0.1
   _curtainTargetHeight: 5
 --- !u!212 &1787032127
 SpriteRenderer:

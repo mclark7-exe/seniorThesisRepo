@@ -760,6 +760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3554862686143618228, guid: 0d252f5baabde8e4488f89425442e4dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4640994178987883039, guid: 0d252f5baabde8e4488f89425442e4dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.56398
