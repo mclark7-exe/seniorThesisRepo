@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class MemorizeLine : MonoBehaviour
@@ -17,9 +18,14 @@ public class MemorizeLine : MonoBehaviour
     [SerializeField] private TMP_Text[] _options;
     
     [SerializeField] private bool _memorized = false;
+    [SerializeField] private GameManager _gameManager;
 
     private void Start()
     {
+        _gameManager = FindFirstObjectByType<GameManager>();
+        Debug.Log(_gameManager);
+        _memorized = _gameManager.IsLineMemorized();
+        
         _memorizePanel.SetActive(!_memorized);
         _performPanel.SetActive(_memorized);
         if (_memorized)
@@ -35,13 +41,15 @@ public class MemorizeLine : MonoBehaviour
             {
                 _options[i].text = _possibleLines[i];
             }
+            
+            _gameManager.SetLineMemorized(false);
         }
         else
         {
             _line = _lines[Random.Range(0, _lines.Length)];
             _lineText = _line.GetLine;
             _memorizeText.text = _lineText;
-            _memorized = true;
+            _gameManager.SetLineMemorized(true);
         }
     }
 

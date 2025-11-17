@@ -6,7 +6,7 @@ public class DebugNextScene : MonoBehaviour
 {
     [SerializeField] private bool _debug = false;
 
-    private void Start()
+    private void Awake()
     {
         DebugNextScene[] managers = FindObjectsByType<DebugNextScene>(FindObjectsSortMode.None);
         if (managers.Length == 1 && _debug) DontDestroyOnLoad(gameObject);
@@ -16,6 +16,15 @@ public class DebugNextScene : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("Next Scene");
+        if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log("Returning to Memorize Line");
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

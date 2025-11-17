@@ -13,6 +13,10 @@ public class SwipeDetection : MonoBehaviour
     
     private Vector2 _endPosition;
     private float _endTime;
+    
+    public delegate void SwipeEvent(string direction);
+
+    public event SwipeEvent OnSwipe;
 
     private void Awake()
     {
@@ -60,18 +64,22 @@ public class SwipeDetection : MonoBehaviour
         if (Vector2.Dot(Vector2.up, direction) > _directionThreshold)
         {
             Debug.Log("Swipe up");
+            OnSwipe("up");
         }
         else if (Vector2.Dot(Vector2.down, direction) > _directionThreshold)
         {
             Debug.Log("Swipe down");
+            OnSwipe("down");
         }
         else if (Vector2.Dot(Vector2.left, direction) > _directionThreshold)
         {
             Debug.Log("Swipe left");
+            OnSwipe("left");
         }
         else if (Vector2.Dot(Vector2.right, direction) > _directionThreshold)
         {
             Debug.Log("Swipe right");
+            OnSwipe("right");
         }
     }
 }
