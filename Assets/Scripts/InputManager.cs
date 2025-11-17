@@ -22,7 +22,10 @@ public class InputManager : MonoBehaviour
         _touchControls.Enable();
     }
 
-   
+    private void OnDisable()
+    {
+        _touchControls.Disable();
+    }
 
     private void Start()
     {

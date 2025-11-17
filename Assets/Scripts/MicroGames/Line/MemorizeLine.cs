@@ -46,16 +46,16 @@ public class MemorizeLine : MonoBehaviour
         }
         else
         {
-            _line = _lines[Random.Range(0, _lines.Length)];
+            _line = _lines[Random.Range(0, _lines.Length - 1)];
             _lineText = _line.GetLine;
             _memorizeText.text = _lineText;
             _gameManager.SetLineMemorized(true);
         }
     }
 
-    public void SelectLine(bool isCorrect)
+    public void SelectLine(int line)
     {
-        if (isCorrect) Debug.Log("Correct!!!!! :))) WOW!!!!! HOORAY");
+        if (_possibleLines[line] == _lineText) Debug.Log("Correct!!!!! :))) WOW!!!!! HOORAY");
         else Debug.Log("Wrong!!!!! :(");
     }
 }

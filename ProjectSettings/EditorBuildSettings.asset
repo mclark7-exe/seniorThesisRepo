@@ -9,20 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Dancer.unity
-    guid: 8adf0369cd20f85458039c47f0a10031
+    path: Assets/Scenes/Line.unity
+    guid: bf067edcc4d567440a853fb00e565abc
+  - enabled: 1
+    path: Assets/Scenes/Sweep.unity
+    guid: 76699e166670a8d4ab7a8811e0a86efc
+  - enabled: 1
+    path: Assets/Scenes/QuietOnSet.unity
+    guid: b706e28bd2175c440b0beff396c82fb1
   - enabled: 1
     path: Assets/Scenes/Curtain.unity
     guid: e79ceca1b1dd54c4b9729ed413ed8703
   - enabled: 1
+    path: Assets/Scenes/Dancer.unity
+    guid: 8adf0369cd20f85458039c47f0a10031
+  - enabled: 1
     path: Assets/Scenes/Singer.unity
     guid: a93fd2744ea00af4298105ba31ccd521
-  - enabled: 1
-    path: Assets/Scenes/Line.unity
-    guid: bf067edcc4d567440a853fb00e565abc
-  - enabled: 1
-    path: Assets/Scenes/QuietOnSet.unity
-    guid: b706e28bd2175c440b0beff396c82fb1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: b82165b74028f814c9653e217f0c4642, type: 3}
   m_UseUCBPForAssetBundles: 0

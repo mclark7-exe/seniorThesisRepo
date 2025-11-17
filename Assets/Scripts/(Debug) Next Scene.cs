@@ -17,10 +17,10 @@ public class DebugNextScene : MonoBehaviour
     public void NextScene()
     {
         Debug.Log("Next Scene");
+        
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log("Returning to Memorize Line");
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(1);
         }
         else
         {
