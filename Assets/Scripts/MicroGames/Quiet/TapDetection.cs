@@ -4,6 +4,7 @@ using UnityEngine;
 public class TapDetection : MonoBehaviour
 {
     private InputManager _inputManager;
+    [SerializeField] private float _loseScoreValue = -30f;
     private void Awake()
     {
         _inputManager = GetComponent<InputManager>();
@@ -12,6 +13,6 @@ public class TapDetection : MonoBehaviour
 
     private void OnTouch(Vector2 position, float time)
     {
-        Debug.Log("Touch Detected. Quiet on set!");
+        GameManager.Instance.AddScore(_loseScoreValue);
     }
 }

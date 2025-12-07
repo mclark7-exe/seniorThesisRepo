@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9862bee51ce97a46b88417f306db8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _lineMemorized: 0
+  _scoreDecayRate: 2

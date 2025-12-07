@@ -19,10 +19,13 @@ public class MemorizeLine : MonoBehaviour
     
     [SerializeField] private bool _memorized = false;
     [SerializeField] private GameManager _gameManager;
+    
+    [SerializeField] private float _loseScoreValue = -30f;
+    [SerializeField] private float _winScoreValue = 30f;
 
     private void Start()
     {
-        _gameManager = FindFirstObjectByType<GameManager>();
+        _gameManager = GameManager.Instance;
         Debug.Log(_gameManager);
         _memorized = _gameManager.IsLineMemorized();
         
@@ -30,12 +33,15 @@ public class MemorizeLine : MonoBehaviour
         _performPanel.SetActive(_memorized);
         if (_memorized)
         {
+            _line = _gameManager.GetMemorizedLine();
+            Debug.Log(_line.GetLine);
             if (_line == null)
             {
                 _line = _lines[0];
-                _lineText = _line.GetLine;
-                _possibleLines = _line.GetAllLines;
             }
+            
+            _lineText = _line.GetLine;
+            _possibleLines = _line.GetAllLines;
 
             for (int i = 0; i < 3; i++)
             {
@@ -46,16 +52,17 @@ public class MemorizeLine : MonoBehaviour
         }
         else
         {
-            _line = _lines[Random.Range(0, _lines.Length - 1)];
+            _line = _lines[Random.Range(0, _lines.Length)];
             _lineText = _line.GetLine;
             _memorizeText.text = _lineText;
             _gameManager.SetLineMemorized(true);
+            _gameManager.SetMemorizedLine(_line);
         }
     }
 
     public void SelectLine(int line)
     {
-        if (_possibleLines[line] == _lineText) Debug.Log("Correct!!!!! :))) WOW!!!!! HOORAY");
-        else Debug.Log("Wrong!!!!! :(");
+        if (_possibleLines[line] == _lineText) GameManager.Instance.AddScore(_winScoreValue);
+        else GameManager.Instance.AddScore(_loseScoreValue);
     }
 }

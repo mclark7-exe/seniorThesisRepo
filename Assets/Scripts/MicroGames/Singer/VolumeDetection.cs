@@ -14,6 +14,7 @@ public class VolumeDetection : MonoBehaviour
     [SerializeField] private float _volumeThreshold = 3f;
     [SerializeField] private float _clipLengthThreshold = 3f;
     private int _clipsAboveThreshold = 0;
+    [SerializeField] private float _scoreValue = -30f;
     void Start()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
@@ -55,6 +56,6 @@ public class VolumeDetection : MonoBehaviour
         _circle.transform.localScale = new Vector3(volume, volume, 1);
         if (volume * _volumeMultiplier > _volumeThreshold) _clipsAboveThreshold++;
         else _clipsAboveThreshold = 0;
-        if (_clipsAboveThreshold >= _clipLengthThreshold) Debug.Log("Volume Threshold exceeded.");
+        if (_clipsAboveThreshold >= _clipLengthThreshold) GameManager.Instance.AddScore(_scoreValue);
     }
 }

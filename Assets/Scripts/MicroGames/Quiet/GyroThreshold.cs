@@ -6,6 +6,8 @@ public class GyroThreshold : MonoBehaviour
     private bool _gyroEnabled;
     private Gyroscope _gyro;
     [SerializeField] private float _gyroThreshold = 1f;
+    [SerializeField] private float _loseScoreValue = -30f;
+    [SerializeField] private float _passiveScoreValue = 6f;
 
     private void Start()
     {
@@ -25,13 +27,17 @@ public class GyroThreshold : MonoBehaviour
         return false;
     }
     
-    private void FixedUpdate()
+    private void Update()
     {
         if (_gyroEnabled)
         {
             if (_gyro.rotationRateUnbiased.y > _gyroThreshold || _gyro.rotationRateUnbiased.x > _gyroThreshold)
             {
-                Debug.Log("Gyro Threshold Exceeded. Quiet on set!");
+                GameManager.Instance.AddScore(_loseScoreValue);
+            }
+            else
+            {
+                GameManager.Instance.AddScore(_passiveScoreValue * Time.deltaTime);
             }
         }
     }

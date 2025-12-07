@@ -11,6 +11,7 @@ public class PullRope : MonoBehaviour
     [SerializeField] private GameObject _curtain;
     [SerializeField] private float _curtainSpeed = 0.2f;
     [SerializeField] private float _curtainTargetHeight = 5;
+    [SerializeField] private float _scoreValue = 25;
     
     private Transform _curtainTransform;
     
@@ -21,7 +22,6 @@ public class PullRope : MonoBehaviour
         _curtainTransform = _curtain.GetComponent<Transform>();
         _inputManager.OnStartTouch += PullStart;
         _inputManager.OnEndTouch += PullEnd;
-        Debug.Log("I Exist! :)" + _inputManager);
     }
     
     private void OnEnable()
@@ -85,6 +85,11 @@ public class PullRope : MonoBehaviour
         if (_curtainTransform.position.y < 0)
         {
             _curtainTransform.position = new Vector3(0,0,1);
+        }
+        if (_curtainTransform.position.y > _curtainTargetHeight)
+        {
+            GameManager.Instance.AddScore(_scoreValue);
+            GameManager.NewRandomMicrogame();
         }
     }
 
