@@ -9,14 +9,16 @@ public class PullRope : MonoBehaviour
     private Vector2 _startPosition;
     private RectTransform _rectTransform;
     [SerializeField] private GameObject _curtain;
-    [SerializeField] private float _curtainSpeed = 0.2f;
+    [SerializeField] private float _curtainSpeed = 0.6f;
     [SerializeField] private float _curtainTargetHeight = 5;
     [SerializeField] private int _scoreValue = 25;
+    private float _difficulty;
     
     private Transform _curtainTransform;
     
     private void Start()
     {
+        _difficulty = GameManager.GetDifficulty();
         _inputManager = FindFirstObjectByType<InputManager>();
         _rectTransform = GetComponent<RectTransform>();
         _curtainTransform = _curtain.GetComponent<Transform>();
@@ -61,7 +63,7 @@ public class PullRope : MonoBehaviour
             Vector2 delta = touchPosition - _startPosition;
             transform.Translate(0, delta.y, 0);
             _startPosition = touchPosition;
-            _curtainTransform.Translate(0, delta.y * _curtainSpeed * -1, 0);
+            _curtainTransform.Translate(0, (delta.y * _curtainSpeed * -1) / _difficulty, 0);
         }
         Loop();
         Curtain();

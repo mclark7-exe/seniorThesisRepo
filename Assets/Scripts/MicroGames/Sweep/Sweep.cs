@@ -9,15 +9,18 @@ public class Sweep : MonoBehaviour
     
     [SerializeField] private float _destination;
     [SerializeField] private float _startPosition;
-    [SerializeField] private int _swipeThreshold = 10;
+    [SerializeField] private int _swipeThreshold = 8;
     private int _swipes = 0;
     [SerializeField]private float _speed;
     [SerializeField] private int _scoreValue = 30;
+    private float _difficulty;
 
     private void Start()
     {
         _swipeDetection = FindFirstObjectByType<SwipeDetection>();
         _swipeDetection.OnSwipe += Swipe;
+        _difficulty = GameManager.GetDifficulty();
+        _swipeThreshold += (int)_difficulty * 2;
     }
 
 

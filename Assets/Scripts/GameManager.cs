@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
         _running = true;
         _audienceReaction = 50f;
+        _difficulty = 1; 
         NewRandomMicrogame();
     }
 }

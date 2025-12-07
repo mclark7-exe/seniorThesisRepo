@@ -645,6 +645,7 @@ MonoBehaviour:
   _volumeThreshold: 50
   _clipLengthThreshold: 25
   _scoreValue: -30
+  _gracePeriod: 1
 --- !u!114 &1406655239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f322a63f6d834843872d0aa06f7dbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GyroThreshold
+  _gracePeriod: 1
   _gyroThreshold: 1
   _loseScoreValue: -30
   _passiveScoreValue: 6
@@ -673,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TapDetection
   _loseScoreValue: -30
+  _gracePeriod: 1
 --- !u!1 &1566297570
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,9 +17,14 @@ public class Dancer : MonoBehaviour
     private bool _waiting;
     private bool _colliding;
     [SerializeField] private int _scoreValue = 8;
+    private float _difficulty;
     
     void Start()
     {
+        _difficulty = GameManager.GetDifficulty();
+        
+        _speed += _difficulty;
+        
         foreach (Transform waypoint in _waypointsParent.transform) _waypoints.Add(waypoint); 
         
         transform.position = _waypoints[4].position;
@@ -40,13 +45,13 @@ public class Dancer : MonoBehaviour
 
         if (_colliding)
         {
-            GameManager.AddScore(_scoreValue * Time.deltaTime);
+            GameManager.AddScore((_scoreValue + (_difficulty * 2)) * Time.deltaTime);
         }
     }
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(Random.Range(_minWaitTime, _maxWaitTime));
+        yield return new WaitForSeconds(Random.Range(_minWaitTime / _difficulty, _maxWaitTime / _difficulty));
         _waiting = false;
     }
 

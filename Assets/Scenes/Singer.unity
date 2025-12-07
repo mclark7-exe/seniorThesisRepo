@@ -337,6 +337,7 @@ MonoBehaviour:
   _volumeThreshold: 75
   _clipLengthThreshold: 25
   _scoreValue: 30
+  _gracePeriod: 0.1
 --- !u!1 &1538281510
 GameObject:
   m_ObjectHideFlags: 0

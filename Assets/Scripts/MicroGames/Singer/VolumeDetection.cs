@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Android;
@@ -15,8 +16,12 @@ public class VolumeDetection : MonoBehaviour
     [SerializeField] private float _clipLengthThreshold = 3f;
     private int _clipsAboveThreshold = 0;
     [SerializeField] private int _scoreValue = -30;
+    private bool _waiting = true;
+    private float _difficulty;
+    [SerializeField]private float _gracePeriod;
     void Start()
     {
+        _difficulty = GameManager.GetDifficulty();
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
             Debug.Log("Microphone access denied.");
@@ -31,7 +36,8 @@ public class VolumeDetection : MonoBehaviour
         }
         else
             Debug.Log("No microphone detected.");
-        
+
+        StartCoroutine(Wait());
     }
 
     private float AudioClipVolume()
@@ -56,10 +62,16 @@ public class VolumeDetection : MonoBehaviour
         _circle.transform.localScale = new Vector3(volume, volume, 1);
         if (volume * _volumeMultiplier > _volumeThreshold) _clipsAboveThreshold++;
         else _clipsAboveThreshold = 0;
-        if (_clipsAboveThreshold >= _clipLengthThreshold)
+        if (_clipsAboveThreshold >= _clipLengthThreshold && !_waiting)
         {
             GameManager.AddScore(_scoreValue);
             GameManager.NewRandomMicrogame();
         }
+    }
+    
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(_gracePeriod / _difficulty);
+        _waiting = false;
     }
 }
