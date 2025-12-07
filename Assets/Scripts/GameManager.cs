@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     private float _audienceReaction = 50f;
     [SerializeField] private float _scoreMultiplier = 10f;
     [SerializeField] private float _audienceReactionDecay = 1f;
-    [SerializeField] private float _animationTime = 0.25f;
 
     public void AddScore(float score)
     {
@@ -20,11 +19,7 @@ public class GameManager : MonoBehaviour
         _audienceReaction = Mathf.Clamp(_audienceReaction, 0, 100);
     }
     
-    public void AddScoreSmooth(float score)
-    {
-        if (score > 0) _score += score * _scoreMultiplier;
-        
-    }
+    
     public float GetScore() { return _score; }
     public float GetAudienceReaction() { return _audienceReaction; }
     public bool IsLineMemorized() { return _lineMemorized; }

@@ -354,6 +354,7 @@ MonoBehaviour:
   _volumeMultiplier: 100
   _volumeThreshold: 100
   _clipLengthThreshold: 50
+  _scoreValue: -30
 --- !u!1 &1538281510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1045,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1760229685791546112, guid: fb05092f7eb352e49939c486691f3b74, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2923475976127201710, guid: fb05092f7eb352e49939c486691f3b74, type: 3}
       propertyPath: m_Name
       value: MicroGameManager

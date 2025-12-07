@@ -14,5 +14,6 @@ public class TapDetection : MonoBehaviour
     private void OnTouch(Vector2 position, float time)
     {
         GameManager.Instance.AddScore(_loseScoreValue);
+        GameManager.NewRandomMicrogame();
     }
 }

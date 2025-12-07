@@ -34,6 +34,7 @@ public class GyroThreshold : MonoBehaviour
             if (_gyro.rotationRateUnbiased.y > _gyroThreshold || _gyro.rotationRateUnbiased.x > _gyroThreshold)
             {
                 GameManager.Instance.AddScore(_loseScoreValue);
+                GameManager.NewRandomMicrogame();
             }
             else
             {

@@ -31,6 +31,7 @@ public class Sweep : MonoBehaviour
             if (_swipes >= _swipeThreshold)
             {
                 GameManager.Instance.AddScore(_scoreValue);
+                GameManager.NewRandomMicrogame();
             }
         }
     }

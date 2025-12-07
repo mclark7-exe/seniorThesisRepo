@@ -56,6 +56,10 @@ public class VolumeDetection : MonoBehaviour
         _circle.transform.localScale = new Vector3(volume, volume, 1);
         if (volume * _volumeMultiplier > _volumeThreshold) _clipsAboveThreshold++;
         else _clipsAboveThreshold = 0;
-        if (_clipsAboveThreshold >= _clipLengthThreshold) GameManager.Instance.AddScore(_scoreValue);
+        if (_clipsAboveThreshold >= _clipLengthThreshold)
+        {
+            GameManager.Instance.AddScore(_scoreValue);
+            GameManager.NewRandomMicrogame();
+        }
     }
 }

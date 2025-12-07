@@ -64,5 +64,7 @@ public class MemorizeLine : MonoBehaviour
     {
         if (_possibleLines[line] == _lineText) GameManager.Instance.AddScore(_winScoreValue);
         else GameManager.Instance.AddScore(_loseScoreValue);
+        
+        GameManager.NewRandomMicrogame();
     }
 }
