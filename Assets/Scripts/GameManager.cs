@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]private bool _lineMemorized = false;
-    private Line _memorizedLine = null;
+    private static bool _lineMemorized = false;
+    private static Line _memorizedLine = null;
     
-    private float _score = 0f;
-    private float _audienceReaction = 50f;
-    [SerializeField] private float _scoreMultiplier = 10f;
-    [SerializeField] private float _audienceReactionDecay = 1f;
+    private static float _score = 0;
+    private static float _audienceReaction = 50f;
+    private const int _scoreMultiplier = 10;
+    private static float _difficulty = 1;
 
-    public void AddScore(float score)
+    public static void AddScore(float score)
     {
         if (score > 0) _score += score * _scoreMultiplier;
         _audienceReaction += score;
@@ -20,22 +20,21 @@ public class GameManager : MonoBehaviour
     }
     
     
-    public float GetScore() { return _score; }
-    public float GetAudienceReaction() { return _audienceReaction; }
-    public bool IsLineMemorized() { return _lineMemorized; }
-    public void SetLineMemorized(bool value) { _lineMemorized = value; }
-    public Line GetMemorizedLine() { return _memorizedLine; }
-    public void SetMemorizedLine(Line value) { _memorizedLine = value; }
-    
-    public static GameManager Instance;
+    public static float GetScore() { return _score; }
+    public static float GetAudienceReaction() { return _audienceReaction; }
+    public static bool IsLineMemorized() { return _lineMemorized; }
+    public static void SetLineMemorized(bool value) { _lineMemorized = value; }
+    public static Line GetMemorizedLine() { return _memorizedLine; }
+    public static void SetMemorizedLine(Line value) { _memorizedLine = value; }
+    public static float GetDifficulty() { return _difficulty; }
 
+    private static bool _running = true;
     private void Awake()
     {
         GameManager[] managers = FindObjectsByType<GameManager>(FindObjectsSortMode.None);
         if (managers.Length == 1)
         {
             DontDestroyOnLoad(gameObject);
-            Instance = this;
         }
         else
         {
@@ -47,9 +46,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _audienceReaction -= Time.deltaTime * _audienceReactionDecay;
-        Debug.Log("Audience Reaction: " + _audienceReaction);
-        Debug.Log("Score: " + _score);
+        
+        if (_audienceReaction < 0)
+        {
+            _audienceReaction = 0;
+            _running = false;
+            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+        }
+        else if (_running) 
+        {
+            _audienceReaction -= Time.deltaTime * _difficulty * 2;
+        }
     }
 
     public static void NewRandomMicrogame()
@@ -60,6 +67,15 @@ public class GameManager : MonoBehaviour
             newMicrogame = UnityEngine.Random.Range(1, SceneManager.sceneCountInBuildSettings - 1);
         }
         
+        _difficulty += 0.1f;
         SceneManager.LoadScene(newMicrogame);
+    }
+
+    public static void RestartGame()
+    {
+        _score = 0;
+        _running = true;
+        _audienceReaction = 50f;
+        NewRandomMicrogame();
     }
 }

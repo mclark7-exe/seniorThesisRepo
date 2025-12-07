@@ -18,22 +18,19 @@ public class MemorizeLine : MonoBehaviour
     [SerializeField] private TMP_Text[] _options;
     
     [SerializeField] private bool _memorized = false;
-    [SerializeField] private GameManager _gameManager;
     
-    [SerializeField] private float _loseScoreValue = -30f;
-    [SerializeField] private float _winScoreValue = 30f;
+    [SerializeField] private int _loseScoreValue = -30;
+    [SerializeField] private int _winScoreValue = 30;
 
     private void Start()
     {
-        _gameManager = GameManager.Instance;
-        Debug.Log(_gameManager);
-        _memorized = _gameManager.IsLineMemorized();
+        _memorized = GameManager.IsLineMemorized();
         
         _memorizePanel.SetActive(!_memorized);
         _performPanel.SetActive(_memorized);
         if (_memorized)
         {
-            _line = _gameManager.GetMemorizedLine();
+            _line = GameManager.GetMemorizedLine();
             Debug.Log(_line.GetLine);
             if (_line == null)
             {
@@ -48,22 +45,22 @@ public class MemorizeLine : MonoBehaviour
                 _options[i].text = _possibleLines[i];
             }
             
-            _gameManager.SetLineMemorized(false);
+            GameManager.SetLineMemorized(false);
         }
         else
         {
             _line = _lines[Random.Range(0, _lines.Length)];
             _lineText = _line.GetLine;
             _memorizeText.text = _lineText;
-            _gameManager.SetLineMemorized(true);
-            _gameManager.SetMemorizedLine(_line);
+            GameManager.SetLineMemorized(true);
+            GameManager.SetMemorizedLine(_line);
         }
     }
 
     public void SelectLine(int line)
     {
-        if (_possibleLines[line] == _lineText) GameManager.Instance.AddScore(_winScoreValue);
-        else GameManager.Instance.AddScore(_loseScoreValue);
+        if (_possibleLines[line] == _lineText) GameManager.AddScore(_winScoreValue);
+        else GameManager.AddScore(_loseScoreValue);
         
         GameManager.NewRandomMicrogame();
     }

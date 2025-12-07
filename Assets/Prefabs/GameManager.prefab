@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _lineMemorized: 0
-  _scoreDecayRate: 2
+  _scoreMultiplier: 10
+  _audienceReactionDecay: 5

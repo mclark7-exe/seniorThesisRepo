@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 public class Dancer : MonoBehaviour
 {
 
-    private GameManager _manager;
     [SerializeField] private GameObject _waypointsParent;
     [SerializeField]private List<Transform> _waypoints;
     private Vector3 _targetPosition;
@@ -17,12 +16,10 @@ public class Dancer : MonoBehaviour
     [SerializeField] private float _minWaitTime;
     private bool _waiting;
     private bool _colliding;
-    [SerializeField] private float _scoreValue = 8;
+    [SerializeField] private int _scoreValue = 8;
     
     void Start()
     {
-        _manager = GameManager.Instance;
-        
         foreach (Transform waypoint in _waypointsParent.transform) _waypoints.Add(waypoint); 
         
         transform.position = _waypoints[4].position;
@@ -43,7 +40,7 @@ public class Dancer : MonoBehaviour
 
         if (_colliding)
         {
-            _manager.AddScore(_scoreValue * Time.deltaTime);
+            GameManager.AddScore(_scoreValue * Time.deltaTime);
         }
     }
 

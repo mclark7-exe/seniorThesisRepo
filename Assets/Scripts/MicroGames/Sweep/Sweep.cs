@@ -12,7 +12,7 @@ public class Sweep : MonoBehaviour
     [SerializeField] private int _swipeThreshold = 10;
     private int _swipes = 0;
     [SerializeField]private float _speed;
-    [SerializeField] private float _scoreValue = 30f;
+    [SerializeField] private int _scoreValue = 30;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class Sweep : MonoBehaviour
             
             if (_swipes >= _swipeThreshold)
             {
-                GameManager.Instance.AddScore(_scoreValue);
+                GameManager.AddScore(_scoreValue);
                 GameManager.NewRandomMicrogame();
             }
         }

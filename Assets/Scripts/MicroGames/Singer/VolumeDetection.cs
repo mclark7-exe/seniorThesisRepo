@@ -14,7 +14,7 @@ public class VolumeDetection : MonoBehaviour
     [SerializeField] private float _volumeThreshold = 3f;
     [SerializeField] private float _clipLengthThreshold = 3f;
     private int _clipsAboveThreshold = 0;
-    [SerializeField] private float _scoreValue = -30f;
+    [SerializeField] private int _scoreValue = -30;
     void Start()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
@@ -58,7 +58,7 @@ public class VolumeDetection : MonoBehaviour
         else _clipsAboveThreshold = 0;
         if (_clipsAboveThreshold >= _clipLengthThreshold)
         {
-            GameManager.Instance.AddScore(_scoreValue);
+            GameManager.AddScore(_scoreValue);
             GameManager.NewRandomMicrogame();
         }
     }

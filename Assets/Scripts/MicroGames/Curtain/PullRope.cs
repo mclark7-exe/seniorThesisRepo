@@ -11,7 +11,7 @@ public class PullRope : MonoBehaviour
     [SerializeField] private GameObject _curtain;
     [SerializeField] private float _curtainSpeed = 0.2f;
     [SerializeField] private float _curtainTargetHeight = 5;
-    [SerializeField] private float _scoreValue = 25;
+    [SerializeField] private int _scoreValue = 25;
     
     private Transform _curtainTransform;
     
@@ -88,7 +88,7 @@ public class PullRope : MonoBehaviour
         }
         if (_curtainTransform.position.y > _curtainTargetHeight)
         {
-            GameManager.Instance.AddScore(_scoreValue);
+            GameManager.AddScore(_scoreValue);
             GameManager.NewRandomMicrogame();
         }
     }
