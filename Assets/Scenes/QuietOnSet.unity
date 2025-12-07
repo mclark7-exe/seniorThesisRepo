@@ -661,7 +661,7 @@ MonoBehaviour:
   _gracePeriod: 1
   _gyroThreshold: 1
   _loseScoreValue: -30
-  _passiveScoreValue: 6
+  _passiveScoreValue: 2
 --- !u!114 &1406655242
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,9 +36,9 @@ public class GyroThreshold : MonoBehaviour
     
     private void Update()
     {
-        if (_gyroEnabled && !_waiting)
+        if (_gyroEnabled)
         {
-            if (_gyro.rotationRateUnbiased.y > _gyroThreshold || _gyro.rotationRateUnbiased.x > _gyroThreshold)
+            if ((_gyro.rotationRateUnbiased.y > _gyroThreshold || _gyro.rotationRateUnbiased.x > _gyroThreshold) && !_waiting)
             {
                 GameManager.AddScore(_loseScoreValue);
                 GameManager.NewRandomMicrogame();
