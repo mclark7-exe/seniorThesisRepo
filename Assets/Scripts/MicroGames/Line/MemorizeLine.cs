@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class MemorizeLine : MonoBehaviour
 
     [SerializeField] private GameObject _performPanel;
     [SerializeField] private TMP_Text[] _options;
+    [SerializeField] private Image[] _optionImages;
     
     [SerializeField] private bool _memorized = false;
     
@@ -61,7 +63,21 @@ public class MemorizeLine : MonoBehaviour
     {
         if (_possibleLines[line] == _lineText) GameManager.AddScore(_winScoreValue);
         else GameManager.AddScore(_loseScoreValue);
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (_possibleLines[i] == _lineText) _optionImages[i].color = new Color32(90, 255, 125, 255);
+            else _optionImages[i].color = new Color32(255, 90, 125, 255);
+        }
         
+        StartCoroutine(Wait());
+        
+        
+    }
+    
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
         GameManager.NewRandomMicrogame();
     }
 }
