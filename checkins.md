@@ -151,7 +151,12 @@ This week I
 
 ---
 
-## Week 9 Summary (MM/DD/YYYY)
+## Week 9 Summary (11/24/2025)
+### Thanksgiving Break
+
+---
+
+## Week 10 Summary (12/1/2025)
 ### This week I worked on:
 
 [Your answer here]
@@ -170,41 +175,22 @@ This week I
 
 ---
 
-## Week 10 Summary (MM/DD/YYYY)
+## Week 11 Summary (12/08/2025)
 ### This week I worked on:
 
-[Your answer here]
+This week I added a results screen that displays the player's score and keeps track of a high score across multiple attempts. I also began the process of replacing the temporary sprites with my own pixel-art sprites.
 
 ### This week I learned:
 
-[Your answer here]
+This week I learned about Unity's "PlayerPrefs" system, which allows a variable to be mapped to a keyword and stored in a file. This feature allowed for me to store the player's high score even when the game closes and reopens
 
 ### My successes this week were:
 
-[Your answer here]
+I was pleasantly surprised by how much more "finished" the game feels with finalized ui elements and sprites. As I've said I'm no artist, but I think the sprites I've made with Aseprite so far do their job well and sell a nice aesthetic for the game.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
-
----
-
-## Week 11 Summary (MM/DD/YYYY)
-### This week I worked on:
-
-[Your answer here]
-
-### This week I learned:
-
-[Your answer here]
-
-### My successes this week were:
-
-[Your answer here]
-
-### The challenges I faced this week were:
-
-[Your answer here]
+This week I decided to give my final presentation in the spring. It was a difgicult decision to come to, because if I had wanted to I could have rushed this week and had something presentable by today. I decided that it'd be better to spend more time polishing and adding to the game so that in the spring I can present a final product that I'm fully satisfied with.
 
 ---
 
