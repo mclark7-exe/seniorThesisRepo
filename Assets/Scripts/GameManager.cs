@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             _audienceReaction = 0;
             _running = false;
+            _lineMemorized = false;
             SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
         }
         else if (_running) 
