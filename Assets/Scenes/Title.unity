@@ -441,6 +441,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1064181823
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -486,6 +487,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -8752028713342821100, guid: 83730231467762a4c8267bf6667811a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -495,7 +497,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1064181824
 Transform:
@@ -539,7 +540,7 @@ RectTransform:
   m_GameObject: {fileID: 1288318160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 314999401}
@@ -607,6 +608,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -933,7 +935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Theatre \nSimulator"
+  m_text: "Theatre \nMania!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 965bbb41bb16d74468407c81550688bf, type: 2}
   m_sharedMaterial: {fileID: 7328545475282531463, guid: 965bbb41bb16d74468407c81550688bf, type: 2}
@@ -960,7 +962,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 155.6
+  m_fontSize: 205.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -971,10 +973,11 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -46.66
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
@@ -1024,7 +1027,7 @@ GameObject:
   - component: {fileID: 2062651964}
   - component: {fileID: 2062651963}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Silliam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,6 +1101,10 @@ PrefabInstance:
     - target: {fileID: 632715056574135542, guid: eafb3823d59be5047bfd0fb6adb24d73, type: 3}
       propertyPath: m_Name
       value: Showtime Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262599484081881686, guid: eafb3823d59be5047bfd0fb6adb24d73, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4927758307273932870, guid: eafb3823d59be5047bfd0fb6adb24d73, type: 3}
       propertyPath: m_Pivot.x

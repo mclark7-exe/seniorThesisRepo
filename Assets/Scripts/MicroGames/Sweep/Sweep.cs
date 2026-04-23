@@ -5,6 +5,7 @@ using UnityEngine.PlayerLoop;
 public class Sweep : MonoBehaviour
 {
     private SwipeDetection _swipeDetection;
+    [SerializeField] private ParticleSystem _particles;
     [SerializeField]private string _direction = "";
     
     [SerializeField] private float _destination;
@@ -30,6 +31,7 @@ public class Sweep : MonoBehaviour
         {
             _direction = direction;
             _swipes++;
+            _particles.Play();
             
             if (_swipes >= _swipeThreshold)
             {
